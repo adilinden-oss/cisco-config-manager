@@ -1,0 +1,53 @@
+#!/bin/sh
+#
+# Start the tftpd daemon
+
+PATH=/bin:/usr/bin:/sbin:/usr/sbin
+DAEMON=/usr/local/bin/php
+SCRIPTDIR=/var/www/cisco-config-manager/tftpd
+SCRIPT=tftpd.php
+PIDFILE=/var/run/tftpd.pid
+
+test -x $DAEMON -a -f $SCRIPTDIR/$SCRIPT  || exit 0
+
+case "$1" in
+  start)
+    echo -n "Starting Trivial File Transfer Protocol daemon: tftpd "
+    if start-stop-daemon --quiet --stop --pidfile $PIDFILE --signal 0 --chdir $SCRIPTDIR --exec $DAEMON
+    then
+        echo "[already running]"
+    else
+        /sbin/start-stop-daemon --start --quiet --pidfile $PIDFILE --chdir $SCRIPTDIR --exec $DAEMON -- $SCRIPT
+        echo "."
+    fi
+    ;;
+  stop)
+    echo -n "Stopping Trivial File Transfer Protocol daemon: tftpd "
+    if start-stop-daemon --quiet --stop --pidfile $PIDFILE --chdir $SCRIPTDIR --signal 0 --exec $DAEMON
+    then
+        start-stop-daemon --quiet --stop --pidfile $PIDFILE --chdir $SCRIPTDIR --exec $DAEMON 
+        echo "."
+    else
+        echo "[not running]";
+    fi
+    ;;
+  status)
+    echo -n "The Trivial File Transfer Protocol daemon [tftpd] is: "
+    if start-stop-daemon --quiet --stop --pidfile $PIDFILE --signal 0 --chdir $SCRIPTDIR --exec $DAEMON
+    then
+        echo "running"
+    else
+        echo "not running";
+    fi
+    ;;
+  force-reload|restart)
+    $0 stop
+    sleep 1
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/tftpd {start|stop|restart|force-reload|status}"
+    exit 1
+esac
+
+exit 0
