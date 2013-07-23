@@ -326,8 +326,10 @@ function devices_view($id)
 <br><strong>Password:</strong>  <?php echo $r['password']; ?>
 <p><strong>Cisco IOS command to save config:</strong>
 <pre>copy running-config tftp://<?php echo $_SERVER['SERVER_ADDR'] ?>/$<?php echo $r['password']; ?>$/<?php echo $r['filename']; ?></pre>
-<p><strong>Recommended Cisco IOS configuration:</strong>
+<p><strong>Older Cisco IOS configuration:</strong>
 <pre>alias exec save copy system:/running-config tftp://<?php echo $_SERVER['SERVER_ADDR'] ?>/$<?php echo $r['password']; ?>$/<?php echo $r['filename']; ?></pre>
+<p><strong>Recommended Cisco IOS configuration:</strong>
+<pre>alias exec save show running-config | redirect tftp://<?php echo $_SERVER['SERVER_ADDR'] ?>/$<?php echo $r['password']; ?>$/<?php echo $r['filename']; ?></pre>
 <?php
     $r = $db->get_row("SELECT ts FROM updated WHERE device='$id'");
 ?>
