@@ -1,4 +1,4 @@
-Cisco Configuration Manager
+# Cisco Configuration Manager #
 
 This project provides tools to manage configurations for Cisco devices. 
 At the heart of the project is a tftp daemon written entirely in PHP.
@@ -17,5 +17,5 @@ This project was conceived to address some specific needs at K-Net
 documentation and installation instructions are very sparse.
 
 This work is released under the GNU General Public License, please consult
-COPYING.txt and <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>.
+LICENSE and <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>.
 
