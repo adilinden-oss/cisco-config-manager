@@ -55,3 +55,23 @@ To have php load the extension edit php.ini, set the following:
 
     extension_dir = "/usr/local/lib/php/extensions/no-debug-non-zts-20041030"
     extension=xdiff.so
+
+Usage
+=====
+
+On newer devices (2960's, 3560's, 3750's, not 2950's, 3550's) the following can
+be used to automatically backup configs weekly on Sundays.
+
+	kron occurrence SaveConfigSchedule at 23:00 Sun recurring
+	 policy-list SaveConfig
+	!
+	kron occurrence Backup at 23:10 Sun recurring
+	 policy-list Backup
+	!
+	kron policy-list SaveConfig
+	 cli write
+	!
+	kron policy-list Backup
+	 cli save
+
+
