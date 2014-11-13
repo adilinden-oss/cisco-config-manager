@@ -1,13 +1,8 @@
-$Id: README.txt,v 1.2 2005-11-18 23:28:56 adicvs Exp $
-
-Requirements
-============
-
+#Requirements#
 PHP5 is required. The following additional considerations and components are
 required.
 
-Tftpd
------
+##tftpd##
 The tftpd daemon requires the php POSIX Functions and Process Control 
 Functions. This requires the following ./configure switches during the 
 php build.
@@ -16,8 +11,7 @@ php build.
     --enable-sigchild
     --enable-posix
 
-Revision control
-----------------
+##Revision control##
 The revision control code requires the xdiff Functions. The xdiff code
 is currently available through PECL <http://pecl.php.net/package/xdiff>.
 
@@ -56,9 +50,7 @@ To have php load the extension edit php.ini, set the following:
     extension_dir = "/usr/local/lib/php/extensions/no-debug-non-zts-20041030"
     extension=xdiff.so
 
-Usage
-=====
-
+#Usage#
 On newer devices (2960's, 3560's, 3750's, not 2950's, 3550's) the following can
 be used to automatically backup configs weekly on Sundays.
 
@@ -73,5 +65,3 @@ be used to automatically backup configs weekly on Sundays.
 	!
 	kron policy-list Backup
 	 cli save
-
-
