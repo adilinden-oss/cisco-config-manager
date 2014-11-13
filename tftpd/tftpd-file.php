@@ -30,7 +30,7 @@ define ('TFTP_FILE_DIR',    '/tftpboot');   /* directory we operate in */
  *  Do NOT run this script through a browser. 
  *  Needs to be accessed from a shell.
  */
-if ($_ENV["SHELL"] != '/bin/bash' && $_ENV["SHELL"] != '/bin/sh') {
+if ($_SERVER["SHELL"] != '/bin/bash' && $_SERVER["SHELL"] != '/bin/sh') {
     die("<br><strong>This script is cannot be run through browser!</strong>");
 }
 

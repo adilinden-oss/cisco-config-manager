@@ -1,10 +1,19 @@
 #!/bin/sh
-#
-# Start the tftpd daemon
+### BEGIN INIT INFO
+# Provides:          tftpd
+# Required-Start:    $local_fs $remote_fs $network $syslog $named
+# Required-Stop:     $local_fs $remote_fs $network $syslog $named
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# X-Interactive:     false
+# Short-Description: tftpd daemon
+# Description:       Start the tftpd daemon
+#   This script will start the tftpd daemon of the cisco-config-manager. 
+### END INIT INFO
 
 PATH=/bin:/usr/bin:/sbin:/usr/sbin
 DAEMON=/usr/local/bin/php
-SCRIPTDIR=/var/www/cisco-config-manager/tftpd
+SCRIPTDIR=/var/www/html/cisco-config-manager/tftpd
 SCRIPT=tftpd.php
 PIDFILE=/var/run/tftpd.pid
 

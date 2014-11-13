@@ -395,6 +395,7 @@ function devices_table()
 <?php
 
     /* Process each device */
+    $alt = '';
     foreach ($rows as $row) {
         if ($alt == '') {
             $alt = 'alt';
