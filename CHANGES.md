@@ -1,4 +1,9 @@
-# CHangelog #
+# Changelog #
+
+**Nov 15, 2014**
+- Now supports php-5.6.3
+- Added delete device
+- Changed to a single config.php file
 
 **Nov 12, 2014**
 - Now supports php-5.3.29
