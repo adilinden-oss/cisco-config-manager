@@ -147,8 +147,7 @@ Install the config manager by checking out the files from git into the webroot.
 It would be best to alter some details such as database password. These files need the database password updated:
 
       /var/www/html/confgmgr/docs/mysql-init.sql
-      /var/www/html/confgmgr/devices.php
-      /var/www/html/confgmgr/tftpd/tftpd-config.php
+      /var/www/html/confgmgr/config.php
 
 Install the mysql database.
 

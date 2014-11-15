@@ -18,13 +18,14 @@
 /* browse.php   Browse the /tftpboot directory structure.
  */
 
-define('DIR_ROOT',   '/tftpboot');
+/* Include configuration */
+require_once('./config.php');
 
 /* Get path */
 if (isset($_GET['path'])) {
     $dir = sanitize($_GET['path']);
 } else {
-    $dir = DIR_ROOT;
+    $dir = TFTP_FILE_ROOT;
 }
 
 /* Download or show files */
@@ -47,7 +48,7 @@ function sanitize($path)
         exit;
     }
     /* Make sure we are within DIRROOT */
-    if (preg_match('!^'.DIR_ROOT.'!', $path) == 0) {
+    if (preg_match('!^'.TFTP_FILE_ROOT.'!', $path) == 0) {
         echo "Illegal access";
         exit;
     }

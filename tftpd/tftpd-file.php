@@ -20,10 +20,6 @@
  *                  file system. 
  */
 
-/* File access */
-define ('TFTP_FILE_RO',     TRUE);          /* cannot write files if true */
-define ('TFTP_FILE_DIR',    '/tftpboot');   /* directory we operate in */
-
 /* 
  *  Do NOT run this script through a browser. 
  *  Needs to be accessed from a shell.
@@ -31,6 +27,9 @@ define ('TFTP_FILE_DIR',    '/tftpboot');   /* directory we operate in */
 if ($_SERVER["SHELL"] != '/bin/bash' && $_SERVER["SHELL"] != '/bin/sh') {
     die("<br><strong>This script is cannot be run through browser!</strong>");
 }
+
+/* Include configuration */
+require_once('../config.php');
 
 /* Handle file requests */
 function tftpd_handle_file ($c_sock, $sock, $opcode, $mode, $path, $file)

@@ -20,15 +20,6 @@
  *                  files located in a mysql database.
  */
 
-/* Database access */
-define ('TFTP_DB',              'ccm');
-define ('TFTP_DB_HOST',         'localhost');
-define ('TFTP_DB_USER',         'ccm_user');
-define ('TFTP_DB_PASS',         'schmack');
-
-/* Include functions we need */
-require_once('../db/db.php');       /* Database functions */
-
 /* 
  *  Do NOT run this script through a browser. 
  *  Needs to be accessed from a shell.
@@ -36,6 +27,12 @@ require_once('../db/db.php');       /* Database functions */
 if ($_SERVER["SHELL"] != '/bin/bash' && $_SERVER["SHELL"] != '/bin/sh') {
     die("<br><strong>This script is cannot be run through browser!</strong>");
 }
+
+/* Include configuration */
+require_once('../config.php');
+
+/* Include functions we need */
+require_once('../db/db.php');       /* Database functions */
 
 /* Handle configuration request */
 function tftpd_handle_config ($c_sock, $sock, $opcode, $mode, $path, $file)

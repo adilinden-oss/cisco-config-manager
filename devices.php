@@ -19,18 +19,14 @@
  *              history.
  */
 
-/* Database parameters */
-$db_parms = array(
-        'host'      => 'localhost',
-        'user'      => 'ccm_user',
-        'pass'      => 'schmack',
-        'db'        => 'ccm' );
+/* Include configuration */
+require_once('./config.php');
 
 /* Include database access library */
 require_once('./db/db.php');
 
 /* Open database connextion */
-$db = new db($db_parms['host'], $db_parms['user'], $db_parms['pass'], $db_parms['db']);
+$db = new db(TFTP_DB_HOST, TFTP_DB_USER, TFTP_DB_PASS, TFTP_DB);
 
 /* Process form vars */
 $vars = array('action','id','devicename','description','filename','password','ts','patch');

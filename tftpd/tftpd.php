@@ -506,7 +506,6 @@ function tftpd_log($ll, $msg)
 
     /* Log to SYSLOG */
     if (TFTP_USE_SYSLOG && TFTP_LOG_LEVEL < 10) {
-        define_syslog_variables();
         openlog('tftpd.php', LOG_CONS | LOG_PID, LOG_DAEMON);
         if ($ll == 0) {
             syslog(LOG_ERR, $msg);
