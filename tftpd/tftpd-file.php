@@ -1,7 +1,5 @@
 <?php
-/* $Id: tftpd-file.php,v 1.3 2005-11-25 17:11:29 adicvs Exp $
- * 
- * Copyright (C) 2005 Adi Linden <adi@adis.on.ca>
+/* Copyright (C) 2005-2014 Adi Linden <adi@adis.ca>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

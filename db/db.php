@@ -1,7 +1,7 @@
 <?php
 /* $Id: db.php,v 1.3 2005-11-18 23:28:56 adicvs Exp $
  * 
- * Copyright (C) 2005 Adi Linden <adi@adis.on.ca>
+ * Copyright (C) 2005 Adi Linden <adi@adis.ca>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
