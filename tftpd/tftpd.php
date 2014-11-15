@@ -329,13 +329,13 @@ function tftpd_receive_data($s, $sock, $s_block, &$data)
 
         /* Check received packet, should be DATA with incremented block # */
         if ($r > 0) {
-            if (tftpd_recv_data($r_buf, &$opcode, &$r_block, &$data)) {
+            if (tftpd_recv_data($r_buf, $opcode, $r_block, $data)) {
                 if ($r_block == $s_block + 1) {
                     return true;
                 }
             }
             /* If we didn't get DATA, did we get an error? */
-            if (tftpd_recv_nak($r_buf, &$opcode, &$err, &$msg)) {
+            if (tftpd_recv_nak($r_buf, $opcode, $err, $msg)) {
                 tftpd_log('1', 'disconnect: client sent: '.$msg);
                 return false;
             }
@@ -363,13 +363,13 @@ function tftpd_send_data($s, $sock, $s_block, &$data)
 
         /* Check received packet for ACK with current block # */
         if ($r > 0) {
-            if (tftpd_recv_ack($r_buf, &$opcode, &$r_block)) {
+            if (tftpd_recv_ack($r_buf, $opcode, $r_block)) {
                 if ($s_block == $r_block) {
                     return true;
                 }
             }
             /* If we didn't get ACK, did we get an error? */
-            if (tftpd_recv_nak($r_buf, &$opcode, &$err, &$msg)) {
+            if (tftpd_recv_nak($r_buf, $opcode, $err, $msg)) {
                 tftpd_log('1', 'disconnect: client sent: '.$msg);
                 return false;
             }
@@ -471,7 +471,7 @@ function tftpd_send_nak($s, &$sock, $err, $msg = '')
             7   => 'No such user' );
 
     $buf = pack('nna*', TFTP_ERROR, $err, $tftpd_error[$err]);
-    tftpd_send_packet($s, &$sock, &$buf);
+    tftpd_send_packet($s, $sock, $buf);
     tftpd_log('1', 'abort: ('.$err.') '.$tftpd_error[$err].' - '.$msg);
 }
 

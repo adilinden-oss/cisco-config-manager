@@ -102,7 +102,7 @@ Install php5 from sources using php_build.sh.
 
     mkdir /usr/local/src/php
     cd /usr/local/src/php
-    curl -L -O http://museum.php.net/php5/php-5.3.29.tar.xz
+    wget -O php-5.6.3.tar.xz http://us1.php.net/get/php-5.6.3.tar.xz/from/this/mirror
     ./php_build.sh
 
 Install libxdiff from sources.
@@ -123,11 +123,11 @@ Install libxdiff from sources.
 
 This installs the xdiff.so extension in 
 
-      /usr/local/lib/php/extensions/no-debug-non-zts-20090626/
+      /usr/local/lib/php/extensions/no-debug-non-zts-20131226/
     
 To have php load the extension edit php.ini, set the following:
 
-      extension_dir = "/usr/local/lib/php/extensions/no-debug-non-zts-20090626"
+      extension_dir = "/usr/local/lib/php/extensions/no-debug-non-zts-20131226"
       extension=xdiff.so
 
 ###cisco-config-manager###

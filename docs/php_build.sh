@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-PHPVER=5.3.29
+PHPVER=5.6.3
 [ -d php-${PHPVER} ] && rm -rf php-${PHPVER}
 
 if [ -f php-${PHPVER}.tar.xz ]; then
@@ -23,8 +23,6 @@ cd php-${PHPVER}
         --enable-ftp \
         --enable-gd-native-ttf \
         --enable-libxml \
-        --enable-magic-quotes \
-        --disable-safe-mode \
         --enable-session \
         --enable-sockets \
         --enable-tokenizer \
