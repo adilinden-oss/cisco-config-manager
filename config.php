@@ -27,6 +27,9 @@ define ('TFTP_DB_PASS',         'schmack');
 
 /* File access */
 define('TFTP_FILE_ROOT',        '/tftpboot');
-define('TFTP_FILE_RO',          'TRUE');
+define('TFTP_FILE_RO',          '1');
 
+/* Delete option */
+define('DELETE_ON_LIST',        '0');
+define('DELETE_ON_EDIT',        '1');
 ?>
