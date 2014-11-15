@@ -24,7 +24,7 @@ cd php-${PHPVER}
         --enable-gd-native-ttf \
         --enable-libxml \
         --enable-magic-quotes \
-        --enable-safe-mode \
+        --disable-safe-mode \
         --enable-session \
         --enable-sockets \
         --enable-tokenizer \
