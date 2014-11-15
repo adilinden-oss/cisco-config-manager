@@ -362,9 +362,9 @@ function devices_edit($id = NULL)
     ?>
 <p>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-  <p>Device Name:<br><input type="text" size="60" name="devicename" value="<?php echo $device['devicename'] ?>">
-  <p>Description:<br><input type="text" size="60" name="description" value="<?php echo $device['description'] ?>">
-  <p>File Name:<br><input type="text" size="60" name="filename" value="<?php echo $device['filename'] ?>">
+  <p>Device Name:<br><input type="text" size="60" name="devicename" value="<?php if (isset($device['devicename'])) { echo $device['devicename']; }  ?>">
+  <p>Description:<br><input type="text" size="60" name="description" value="<?php if (isset($device['description'])) { echo $device['description']; } ?>">
+  <p>File Name:<br><input type="text" size="60" name="filename" value="<?php if (isset($device['filename'])) { echo $device['filename']; } ?>">
   <p>Password:<br><input type="text" size="60" name="password" value="<?php echo $device['password'] ?>">
   <p><input type="hidden" name="action" value="<?php echo $action ?>">
     <input type="hidden" name="id" value="<?php echo $id ?>">
