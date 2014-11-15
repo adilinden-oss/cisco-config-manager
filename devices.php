@@ -402,7 +402,7 @@ function devices_edit($id = NULL)
     <?php
     echo '<a href="'.$_SERVER['PHP_SELF'].'"><button type="button">&laquo; Back</button></a>';
     echo '&nbsp;--&nbsp;';
-    if (DELETE_ON_EDIT) {
+    if (DELETE_ON_EDIT && $id) {
         echo '<a onclick="return confirm(\'Are you sure you want to delete device: '.$device['devicename'].'?\')" '.
              'href="'.$_SERVER['PHP_SELF'].'?action=delete&id='.$id.'">'.
              '<button type="button">Delete</button>'.
