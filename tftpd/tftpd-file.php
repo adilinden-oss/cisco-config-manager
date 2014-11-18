@@ -136,6 +136,9 @@ function tftpd_recv_file($s, $sock, $fp)
             return false;
         }
         $block++;
+        if ($block > 65535) {
+            $block = 0;
+        }
         $xfer_byte += strlen($data);
     } while (strlen($data) == 512);
 
@@ -160,6 +163,9 @@ function tftpd_send_file($s, $sock, $fp)
             return false;
         }
         $block++;
+        if ($block > 65535) {
+            $block = 0;
+        }
         $xfer_byte += strlen($data);
     }
 

@@ -1,5 +1,10 @@
 # Changelog #
 
+**Nov 18, 2014**
+- Now supports files (not configs) greater then 32MB.
+  This is accomplished by allowing the block counter
+  to rollover to 0 after 65535 have been transferred.
+
 **Nov 15, 2014**
 - Now supports php-5.6.3
 - Added delete device
