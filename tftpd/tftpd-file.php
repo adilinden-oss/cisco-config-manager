@@ -38,7 +38,7 @@ function tftpd_handle_file ($c_sock, $sock, $opcode, $mode, $path, $file)
     if (!preg_match('/\/$/', $path) && $path != '') {
         $path .= '/';
     }
-    $file = TFTP_FILE_DIR . '/' . $path . $file;
+    $file = TFTP_FILE_ROOT . '/' . $path . $file;
     tftpd_log('1', 'access file: '.$file);
 
     /* Deny any accesses to paths containing ../ */
