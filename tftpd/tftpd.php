@@ -446,7 +446,7 @@ function tftpd_recv_request($packet, &$opcode, &$request, &$mode)
      * and PCRE function without success. Cannot seem to match the
      * work.
      */
-    preg_match('/^(..)(.*)\x00(.*)\x00/', $packet, $matches);
+    preg_match('/^(..)(.*)\x00(.*)\x00/U', $packet, $matches);
     $opcode = hexdec(bin2hex(substr($packet, 0, 2)));
     $request = $matches[2];
     $mode = $matches[3];
